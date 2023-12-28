@@ -65,36 +65,6 @@
                                 href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                         </li>
                     </ul>
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav me-auto mt-md-0 ">
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-
-                        <li class="nav-item search-box">
-                            <a class="nav-link text-muted" href="javascript:void(0)"><i class="ti-search"></i></a>
-                            <form class="app-search" style="display: none;">
-                                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a
-                                    class="srh-btn"><i class="ti-close"></i></a> </form>
-                        </li>
-                    </ul>
-
-                    <!-- ============================================================== -->
-                    <!-- Right side toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav">
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../assets/images/users/1.jpg" alt="user" class="profile-pic me-2">Markarn Doe
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
-                        </li>
-                    </ul>
                 </div>
             </nav>
         </header>
@@ -124,6 +94,12 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard.pengaduan') }}" aria-expanded="false">
+                                <i class="mdi me-2 mdi-group"></i>
+                                <span class="hide-menu">Pengaduan</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard.infografis') }}" aria-expanded="false">
                                 <i class="mdi me-2 mdi-message-image"></i>
                                 <span class="hide-menu">Infografis</span>
@@ -143,20 +119,10 @@
             <!-- End Sidebar scroll-->
             <div class="sidebar-footer">
                 <div class="row">
-                    <div class="col-4 link-wrap">
+                    <div class="col-12 link-wrap">
                         <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i
-                                class="ti-settings"></i></a>
-                    </div>
-                    <div class="col-4 link-wrap">
-                        <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i
-                                class="mdi mdi-gmail"></i></a>
-                    </div>
-                    <div class="col-4 link-wrap">
-                        <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
-                                class="mdi mdi-power"></i></a>
+                        <a href="{{ route('logout') }}" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
+                                class="mdi mdi-power"></i> Logout</a>
                     </div>
                 </div>
             </div>
@@ -169,6 +135,29 @@
         <!-- ============================================================== -->
         @if($page == "Beranda")
         @elseif($page == "Ektp")
+            @isset($subpage)
+                @if($subpage == "Create")
+                    @include('dashboard.ektp.ektp-create')
+                @elseif($subpage == "Edit")
+                    @include('dashboard.ektp.ektp-edit')
+                @elseif($subpage == "Print")
+                    @include('dashboard.ektp.ektp-print')
+                @elseif($subpage == "Detail")
+                    @include('dashboard.ektp.ektp-detail')
+                @endif
+            @else
+                @include('dashboard.ektp.ektp')
+            @endisset
+        @elseif($page == "Pengaduan")
+            @isset($subpage)
+                @if($subpage == "Laporan")
+                    @include('dashboard.pengaduan.pengaduan-laporan')
+                @elseif($subpage == "Report")
+                    @include('dashboard.pengaduan.pengaduan-report')
+                @endif
+            @else
+                @include('dashboard.pengaduan.pengaduan')
+            @endisset
         @elseif($page == "Infografis")
             @isset($subpage)
                 @if($subpage == "Create")

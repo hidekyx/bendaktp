@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EktpController;
 use App\Http\Controllers\FaqsController;
 use App\Http\Controllers\FrontpageController;
 use App\Http\Controllers\InfografisController;
+use App\Http\Controllers\PengaduanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,14 +21,34 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontpageController::class, 'home'])->name('home');
+Route::get('/cek', [FrontpageController::class, 'cek'])->name('cek');
+Route::get('/pengaduan', [FrontpageController::class, 'pengaduan'])->name('pengaduan');
+Route::get('/status', [FrontpageController::class, 'status'])->name('status');
 
 Route::get('/login', [AuthController::class, 'login_view']);
-Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/autentikasi', [AuthController::class, 'login_auth']);
 
 Route::get('/dashboard', [DashboardController::class, 'beranda'])->name("dashboard.beranda");
 
-Route::get('/dashboard/ektp', [DashboardController::class, 'ektp'])->name("dashboard.ektp");
+Route::get('/dashboard/ektp', [EktpController::class, 'ektp'])->name("dashboard.ektp");
+Route::get('/dashboard/ektp/create', [EktpController::class, 'ektp_create'])->name("dashboard.ektp-create");
+Route::post('/dashboard/ektp/store', [EktpController::class, 'ektp_store'])->name("dashboard.ektp-store");
+Route::get('/dashboard/ektp/edit/{id_ektp}', [EktpController::class, 'ektp_edit'])->name("dashboard.ektp-edit");
+Route::post('/dashboard/ektp/update/{id_ektp}', [EktpController::class, 'ektp_update'])->name("dashboard.ektp-update");
+Route::post('/dashboard/ektp/delete/{id_ektp}', [EktpController::class, 'ektp_delete'])->name("dashboard.ektp-delete");
+
+Route::post('/dashboard/ektp/process/{id_ektp}', [EktpController::class, 'ektp_process'])->name("dashboard.ektp-process");
+Route::get('/dashboard/ektp/print_view/{id_ektp}', [EktpController::class, 'ektp_print_view'])->name("dashboard.ektp-print-view");
+Route::post('/dashboard/ektp/print_action/{id_ektp}', [EktpController::class, 'ektp_print_action'])->name("dashboard.ektp-print-action");
+Route::post('/dashboard/ektp/retrieve/{id_ektp}', [EktpController::class, 'ektp_retrieve'])->name("dashboard.ektp-retrieve");
+Route::get('/dashboard/ektp/detail/{id_ektp}', [EktpController::class, 'ektp_detail'])->name("dashboard.ektp-detail");
+
+Route::get('/dashboard/pengaduan', [PengaduanController::class, 'pengaduan'])->name("dashboard.pengaduan");
+Route::post('/dashboard/pengaduan/submit', [PengaduanController::class, 'pengaduan_submit'])->name("dashboard.pengaduan-submit");
+Route::post('/dashboard/pengaduan/process/{id_pengaduan}', [PengaduanController::class, 'pengaduan_process'])->name("dashboard.pengaduan-process");
+Route::get('/dashboard/pengaduan/report_view/{id_pengaduan}', [PengaduanController::class, 'pengaduan_report_view'])->name("dashboard.pengaduan-report-view");
+Route::post('/dashboard/pengaduan/report_action/{id_pengaduan}', [PengaduanController::class, 'pengaduan_report_action'])->name("dashboard.pengaduan-report-action");
 
 Route::get('/dashboard/infografis', [InfografisController::class, 'infografis'])->name("dashboard.infografis");
 Route::get('/dashboard/infografis/create', [InfografisController::class, 'infografis_create'])->name("dashboard.infografis-create");

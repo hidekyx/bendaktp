@@ -38,6 +38,12 @@
         @include('front.hero')
         @include('front.infografis')
         @include('front.faqs')
+    @elseif($page == "Cek")
+        @include('front.cek')
+    @elseif($page == "Pengaduan")
+        @include('front.pengaduan')
+    @elseif($page == "Status")
+        @include('front.status')
     @elseif($page == "Login")
         @include('front.login')
     @endif

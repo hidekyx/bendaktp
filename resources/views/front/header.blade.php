@@ -13,9 +13,10 @@
         <li><a href="#faq">FAQ</a></li>
         <li class="dropdown"><a href="#"><span>Layanan</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-                <li><a href="#">Cek Status E-KTP</a></li>
                 <li><a href="#">Pengajuan E-KTP</a></li>
-                <li><a href="#">Pengaduan E-KTP</a></li>
+                <li><a href="{{ route('cek') }}">Cek Status E-KTP</a></li>
+                <li><a href="{{ route('pengaduan') }}">Pengaduan Layanan</a></li>
+                <li><a href="{{ route('status') }}">Status Pengaduan</a></li>
             </ul>
         </li>
         <li><a href="{{ asset('/login') }}">Login</a></li>
