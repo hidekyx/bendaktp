@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\EktpExport;
 use App\Models\Ektp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EktpController extends Controller
 {
     public function ektp() {
         if (Auth::check()) {
             $logged_user = Auth::user();
-            if(Auth::user()->role->nama == "Admin") {
+            if(Auth::user()->role->nama == "Admin" || Auth::user()->role->nama == "Camat") {
                 $ektp = Ektp::simplePaginate(10);
                 return view("dashboard.main", [
                     'page' => "Ektp",
@@ -185,7 +187,6 @@ class EktpController extends Controller
                 $ektp = Ektp::find($id_ektp);
                 $ektp->status = "Selesai Dicetak";
                 $ektp->printed_at = date("Y-m-d H:i:s");
-                $ektp->nik = $request->get('nik');
                 $ektp->save();
                 Session::flash('success', 'E-KTP telah dicetak');
                 return redirect()->route('dashboard.ektp');
@@ -225,7 +226,7 @@ class EktpController extends Controller
     public function ektp_detail($id_ektp) {
         if (Auth::check()) {
             $logged_user = Auth::user();
-            if(Auth::user()->role->nama == "Admin") {
+            if(Auth::user()->role->nama == "Admin" || Auth::user()->role->nama == "Camat") {
                 $ektp = Ektp::find($id_ektp);
                 return view("dashboard.main", [
                     'page' => "Ektp",
@@ -233,6 +234,24 @@ class EktpController extends Controller
                     'logged_user' => $logged_user,
                     'ektp' => $ektp,
                 ]);
+            }
+            else {
+                Session::flash('error', 'Anda tidak diizinkan untuk mengakses halaman ini');
+                return redirect('/');
+            }
+        }
+        else {
+            Session::flash('error', 'Anda harus login terlebih dahulu');
+            return redirect('/login');
+        }
+    }
+
+    public function ektp_export(Request $request) {
+        if (Auth::check()) {
+            if(Auth::user()->role->nama == "Admin" || Auth::user()->role->nama == "Camat") {
+                $tanggal_awal = $request->tanggal_awal;
+                $tanggal_akhir = $request->tanggal_akhir;
+                return Excel::download(new EktpExport($tanggal_awal, $tanggal_akhir), 'Data E-KTP Periode '. $request->tanggal_awal .' - '.$request->tanggal_akhir.'.xlsx');
             }
             else {
                 Session::flash('error', 'Anda tidak diizinkan untuk mengakses halaman ini');

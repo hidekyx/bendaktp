@@ -14,7 +14,7 @@ class PengaduanController extends Controller
     public function pengaduan() {
         if (Auth::check()) {
             $logged_user = Auth::user();
-            if(Auth::user()->role->nama == "Admin") {
+            if(Auth::user()->role->nama == "Admin" || Auth::user()->role->nama == "Camat") {
                 $pengaduan = Pengaduan::simplePaginate(10);
                 return view("dashboard.main", [
                     'page' => "Pengaduan",
@@ -50,16 +50,17 @@ class PengaduanController extends Controller
             $pengaduan->save();
 
             $kode_pengaduan = null;
-            if($request->get('jenis_pengaduan') == "Perubahan") { $kode_pengaduan = "P".$pengaduan->id_pengaduan.$request->get('nik'); }
-            if($request->get('jenis_pengaduan') == "Rusak") { $kode_pengaduan = "R".$pengaduan->id_pengaduan.$request->get('nik'); }
-            if($request->get('jenis_pengaduan') == "Hilang") { $kode_pengaduan = "H".$pengaduan->id_pengaduan.$request->get('nik'); }
-            if($request->get('jenis_pengaduan') == "Gratifikasi") { $kode_pengaduan = "G".$pengaduan->id_pengaduan.$request->get('nik'); }
+            if($request->get('jenis_pengaduan') == "E-KTP Perubahan Status") { $kode_pengaduan = "P".$pengaduan->id_pengaduan.$request->get('nik'); }
+            if($request->get('jenis_pengaduan') == "E-KTP Rusak") { $kode_pengaduan = "R".$pengaduan->id_pengaduan.$request->get('nik'); }
+            if($request->get('jenis_pengaduan') == "E-KTP Hilang") { $kode_pengaduan = "H".$pengaduan->id_pengaduan.$request->get('nik'); }
+            if($request->get('jenis_pengaduan') == "Gratifikasi E-KTP") { $kode_pengaduan = "G".$pengaduan->id_pengaduan.$request->get('nik'); }
 
             $pengaduan->kode_pengaduan = $kode_pengaduan;
             $pengaduan->save();
 
-            Session::flash('success', 'Pengaduan berhasil disimpan');
-            return redirect()->route('pengaduan');
+            // Session::flash('success', 'Pengaduan berhasil disimpan');
+            // return redirect()->route('pengaduan');
+            return redirect('status?kode='.$pengaduan->kode_pengaduan.'#status')->with('success', 'Harap simpan kode pengaduan anda: '.$pengaduan->kode_pengaduan);
         }
         else {
             Session::flash('error', 'NIK tidak ditemukan');

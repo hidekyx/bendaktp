@@ -9,12 +9,13 @@
     <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, materialpro admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, materialpro admin lite design, materialpro admin lite dashboard bootstrap 5 dashboard template">
     <meta name="description" content="Material Pro Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Dashboard Kecamatan Benda - Pengajuan E-KTP</title>
+    <title>Dashboard Kecamatan Benda - E-KTP</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/logo-benda.png') }}">
     <!-- Custom CSS -->
     <link href="{{ asset('back-assets/css/style.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 <body>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -81,21 +82,25 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <!-- User Profile-->
+                        <div class="ms-3">
+                            <p class="font-weight-bolder mb-0">Halo, {{ auth()->user()->nama }}</p>
+                            <p class="badge badge-sm bg-info">{{ auth()->user()->role->nama }}</p>
+                        </div>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard.beranda') }}" aria-expanded="false">
-                                <i class="mdi me-2 mdi-gauge"></i>
-                                <span class="hide-menu">Beranda</span>
+                                <i class="mdi me-2 mdi-chart-bar"></i>
+                                <span class="hide-menu">Laporan</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard.ektp') }}" aria-expanded="false">
-                                <i class="mdi me-2 mdi-account-check"></i>
-                                <span class="hide-menu">E-KTP</span>
+                                <i class="mdi me-2 mdi-account-card-details"></i>
+                                <span class="hide-menu">Pengajuan</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard.pengaduan') }}" aria-expanded="false">
-                                <i class="mdi me-2 mdi-group"></i>
+                                <i class="mdi me-2 mdi-bullhorn"></i>
                                 <span class="hide-menu">Pengaduan</span>
                             </a>
                         </li>
@@ -134,6 +139,7 @@
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         @if($page == "Beranda")
+            @include('dashboard.laporan.laporan')
         @elseif($page == "Ektp")
             @isset($subpage)
                 @if($subpage == "Create")
@@ -199,6 +205,9 @@
     <script src="{{ asset('back-assets/js/sidebarmenu.js') }}"></script>
     <!--Custom JavaScript -->
     <script src="{{ asset('back-assets/js/custom.js') }}"></script>
+    <script src="{{ asset('back-assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    @stack('scripts')
 </body>
 
 </html>

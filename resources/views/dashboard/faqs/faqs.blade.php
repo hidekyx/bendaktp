@@ -16,9 +16,11 @@
                 </div>
             </div>
             <div class="col-md-6 col-4 align-self-center">
+                @if(auth()->user()->id_role == 1)
                 <div class="text-end upgrade-btn">
                     <a href="{{ route('dashboard.faqs-create') }}" class="btn btn-primary d-none d-md-inline-block text-white">Tambah FAQ</a>
                 </div>
+                @endif
             </div>
         </div>
     </div>
@@ -48,7 +50,7 @@
                         <h4 class="card-title">Daftar FAQs</h4>
                         <h6 class="card-subtitle">Data FAQs akan ditampilkan pada halaman utama website Kecamatan Benda</h6>
                         <div class="table-responsive">
-                            <table class="table user-table table-hover">
+                            <table class="table user-table table-hover" id="faq-table">
                                 <thead>
                                     <tr>
                                         <th class="border-top-0">#</th>
@@ -64,11 +66,13 @@
                                         <td><b>{{ $f->judul }}</b></td>
                                         <td>{{ $f->keterangan }}</td>
                                         <td style="width: 130px">
+                                            @if(auth()->user()->id_role == 1)
                                             <a href="{{ route('dashboard.faqs-edit', $f->id_faqs) }}"><button class="btn btn-warning mb-2 w-100"><i class="mdi me-2 mdi-pencil"></i>Edit</button></a>
                                             <form method="post" action="{{ route('dashboard.faqs-delete', $f->id_faqs) }}">
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger text-white w-100"><i class="mdi me-2 mdi-delete"></i>Hapus</button>
                                             </form>
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach
@@ -98,3 +102,10 @@
     <!-- ============================================================== -->
     @include('dashboard.footer')
 </div>
+@push('scripts')
+    <script>
+        $(document).ready( function () {
+            $('#faq-table').DataTable();
+        } );
+    </script>
+@endpush

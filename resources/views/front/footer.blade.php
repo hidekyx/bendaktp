@@ -22,20 +22,21 @@
     <div class="col-lg-2 col-6 footer-links">
       <h4>Menu</h4>
       <ul>
-        <li><a href="#">Beranda</a></li>
-        <li><a href="#">Infografis</a></li>
-        <li><a href="#">FAQ</a></li>
+      <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#infografis">Infografis</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#">Layanan</a></li>
-        <li><a href="#">Login</a></li>
+        <li><a href="{{ asset('/login') }}">Login</a></li>
       </ul>
     </div>
 
     <div class="col-lg-2 col-6 footer-links">
       <h4>Layanan</h4>
       <ul>
-        <li><a href="#">Pengajuan E-KTP</a></li>
-        <li><a href="#">Pengecekan Status E-KTP</a></li>
-        <li><a href="#">Pengaduan E-KTP</a></li>
+        <li><a href="{{ route('pengajuan') }}">Alur Pengajuan E-KTP</a></li>
+        <li><a href="{{ route('cek') }}">Cek Status E-KTP</a></li>
+        <li><a href="{{ route('pengaduan') }}">Pengaduan E-KTP</a></li>
+        <li><a href="{{ route('status') }}">Status Pengaduan E-KTP</a></li>
       </ul>
     </div>
 
@@ -48,7 +49,7 @@
 
 <div class="container mt-4">
   <div class="copyright">
-    &copy; Copyright <strong><span>Kecamatan Benda</span></strong>. All Rights Reserved
+  &copy; Copyright 2024 <strong><span>Kecamatan Benda Kota Tangerang</span></strong>. All Rights Reserved
   </div>
 </div>
 

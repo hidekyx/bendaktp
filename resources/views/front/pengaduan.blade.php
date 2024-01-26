@@ -1,7 +1,7 @@
 <section id="contact" class="contact">
     <div class="container" data-aos="fade-up">
 
-    <div class="section-header">
+    <div class="section-header p-0">
         <h2>Layanan Pengaduan E-KTP</h2>
     </div>
 
@@ -12,47 +12,49 @@
             @csrf
             <div class="row">
                 <div class="form-group">
-                    <label class="col-md-12 mb-2">Jenis Pengaduan</label>
+                    <h4><i class="bi bi-filter">Isi Pengaduan</i></h4>
+                    <hr>
+                    <label class="col-md-12 mb-2 fw-semibold">Jenis Pengaduan</label>
                     <select class="form-select p-2 form-control-line" name="jenis_pengaduan">
                         <option disabled>Pilih Pengaduan:</option>
-                        <option selected value="Perubahan">Perubahan Data E-KTP</option>
-                        <option value="Rusak">E-KTP Rusak</option>
-                        <option value="Hilang">E-KTP Hilang</option>
-                        <option value="Gratifikasi">Gratifikasi E-KTP</option>
+                        <option selected value="E-KTP Perubahan Status">E-KTP Perubahan Status</option>
+                        <option value="E-KTP Rusak">E-KTP Rusak</option>
+                        <option value="E-KTP Hilang">E-KTP Hilang</option>
+                        <option value="Gratifikasi E-KTP">Gratifikasi E-KTP</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-12 mb-2">Nama Lengkap</label>
+                    <label class="col-md-12 mb-2 fw-semibold">Nama Lengkap</label>
                     <div class="col-md-12">
-                        <input type="text" name="nama" placeholder="Nama Lengkap" class="form-control p-2 form-control-line" required>
+                        <input type="text" name="nama" maxlength="40" placeholder="Nama Lengkap" class="form-control p-2 form-control-line" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-12 mb-2">NIK</label>
+                    <label class="col-md-12 mb-2 fw-semibold">NIK</label>
                     <div class="col-md-12">
                         <input type="number" name="nik" placeholder="NIK" class="form-control p-2 form-control-line" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-12 mb-2">No Telp</label>
+                    <label class="col-md-12 mb-2 fw-semibold">No Telp</label>
                     <div class="col-md-12">
                         <input type="number" name="no_telp" placeholder="No Telp" class="form-control p-2 form-control-line" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-12 mb-2">Email</label>
+                    <label class="col-md-12 mb-2 fw-semibold">Email</label>
                     <div class="col-md-12">
                         <input type="email" name="email" placeholder="Email" class="form-control p-2 form-control-line" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-12 mb-2">Keterangan</label>
+                    <label class="col-md-12 mb-2 fw-semibold">Keterangan</label>
                     <div class="col-md-12">
                         <textarea rows="5" name="keterangan" placeholder="Keterangan" class="form-control p-2 form-control-line" required></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-12 mb-2">File Pengaduan (Foto)</label>
+                    <label class="col-md-12 mb-2 fw-semibold">File Pengaduan (Foto)</label>
                     <div class="col-md-12">
                         <input type="file" name="file" placeholder="File Pengaduan" class="form-control p-2 form-control-line" required>
                     </div>
@@ -78,7 +80,7 @@
                     @endif
                 </div>
             </div>
-            <div class="text-center mt-3"><button type="submit">Submit</button></div>
+            <div class="text-center mt-3"><button type="submit">Kirim</button></div>
         </form>
         </div><!-- End Contact Form -->
 

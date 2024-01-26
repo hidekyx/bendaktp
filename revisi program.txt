@@ -1,0 +1,22 @@
+RANCANG BANGUN SISTEM INFORMASI PEMANTAUAN
+DAN PENGADUAN PELAYANAN E-KTP PADA 
+KECAMATAN BENDA KOTA TANGERANG
+
+
+REVISI PROGRAM
+
+1. LOGIN > pada saat input email & password dibatesin lenghtnya menjadi 15
+
+2. USER > menmbahkan user & role camat diberikan akses melihat saja
+
+3. LAPORAN> menambahkan laporan pengajuan dan pengaduan E-KTP
+
+4. DATABASE> menambahkan relasi one to one/one to many/ many to many
+
+5.  DASHBOARD> menambahkan kolom search pada tiap-tiap menu
+
+6. DASHBOAR & FRONT> membatasi lenght input menjadi 20 tiap-tiap kolom yg ada inputya
+
+
+
+ 

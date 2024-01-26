@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Kecamatan Benda - Pengajuan E-KTP</title>
+<title>Kecamatan Benda - E-KTP</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
 
@@ -42,6 +42,8 @@
         @include('front.cek')
     @elseif($page == "Pengaduan")
         @include('front.pengaduan')
+    @elseif($page == "Pengajuan")
+        @include('front.pengajuan')
     @elseif($page == "Status")
         @include('front.status')
     @elseif($page == "Login")

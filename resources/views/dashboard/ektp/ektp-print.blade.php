@@ -5,12 +5,12 @@
     <div class="page-breadcrumb">
         <div class="row align-items-center">
             <div class="col-md-6 col-8 align-self-center">
-                <h3 class="page-title mb-0 p-0">E-KTP</h3>
+                <h3 class="page-title mb-0 p-0">Layanan Pengajuan E-KTPE-KTP</h3>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard.beranda') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('dashboard.ektp') }}">E-KTP</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('dashboard.ektp') }}">Layanan Pengajuan E-KTP</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Print E-KTP</li>
                         </ol>
                     </nav>
@@ -76,12 +76,6 @@
                                         <td>{{ $ektp->kewarganegaraan }}</td>
                                     </tr>
                                 </table>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12 mb-0">Isikan NIK:</label>
-                                <div class="col-md-12">
-                                    <input type="number" name="nik" placeholder="NIK" class="form-control ps-0 form-control-line" required>
-                                </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12 d-flex">

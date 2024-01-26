@@ -16,9 +16,11 @@
                 </div>
             </div>
             <div class="col-md-6 col-4 align-self-center">
+                @if(auth()->user()->id_role == 1)
                 <div class="text-end upgrade-btn">
                     <a href="{{ route('dashboard.infografis-create') }}" class="btn btn-primary d-none d-md-inline-block text-white">Tambah Infografis</a>
                 </div>
+                @endif
             </div>
         </div>
     </div>
@@ -48,7 +50,7 @@
                         <h4 class="card-title">Daftar Infografis</h4>
                         <h6 class="card-subtitle">Data Infografis akan ditampilkan dalam bentuk galeri di website Kecamatan Benda</h6>
                         <div class="table-responsive">
-                            <table class="table user-table table-hover">
+                            <table class="table user-table table-hover" id="infografis-table">
                                 <thead>
                                     <tr>
                                         <th class="border-top-0">#</th>
@@ -64,11 +66,13 @@
                                         <td><b>{{ $i->judul }}</b></td>
                                         <td><img src="{{ asset('storage/infografis/'.$i->file) }}" style="max-width: 250px;" class="img-fluid" alt=""></td>
                                         <td style="width: 130px">
+                                            @if(auth()->user()->id_role == 1)
                                             <a href="{{ route('dashboard.infografis-edit', $i->id_infografis) }}"><button class="btn btn-warning mb-2 w-100"><i class="mdi me-2 mdi-pencil"></i>Edit</button></a>
                                             <form method="post" action="{{ route('dashboard.infografis-delete', $i->id_infografis) }}">
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger text-white w-100"><i class="mdi me-2 mdi-delete"></i>Hapus</button>
                                             </form>
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach
@@ -98,3 +102,10 @@
     <!-- ============================================================== -->
     @include('dashboard.footer')
 </div>
+@push('scripts')
+    <script>
+        $(document).ready( function () {
+            $('#infografis-table').DataTable();
+        } );
+    </script>
+@endpush

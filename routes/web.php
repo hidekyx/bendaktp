@@ -24,6 +24,7 @@ Route::get('/', [FrontpageController::class, 'home'])->name('home');
 Route::get('/cek', [FrontpageController::class, 'cek'])->name('cek');
 Route::get('/pengaduan', [FrontpageController::class, 'pengaduan'])->name('pengaduan');
 Route::get('/status', [FrontpageController::class, 'status'])->name('status');
+Route::get('/pengajuan', [FrontpageController::class, 'pengajuan'])->name('pengajuan');
 
 Route::get('/login', [AuthController::class, 'login_view']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -43,6 +44,7 @@ Route::get('/dashboard/ektp/print_view/{id_ektp}', [EktpController::class, 'ektp
 Route::post('/dashboard/ektp/print_action/{id_ektp}', [EktpController::class, 'ektp_print_action'])->name("dashboard.ektp-print-action");
 Route::post('/dashboard/ektp/retrieve/{id_ektp}', [EktpController::class, 'ektp_retrieve'])->name("dashboard.ektp-retrieve");
 Route::get('/dashboard/ektp/detail/{id_ektp}', [EktpController::class, 'ektp_detail'])->name("dashboard.ektp-detail");
+Route::post('/dashboard/ektp/export', [EktpController::class, 'ektp_export'])->name("dashboard.ektp-export");
 
 Route::get('/dashboard/pengaduan', [PengaduanController::class, 'pengaduan'])->name("dashboard.pengaduan");
 Route::post('/dashboard/pengaduan/submit', [PengaduanController::class, 'pengaduan_submit'])->name("dashboard.pengaduan-submit");

@@ -21,6 +21,7 @@ class Ektp extends Model
         'status_perkawinan',
         'pekerjaan',
         'kewarganegaraan',
+        'keterangan',
         'status',
         'processed_at',
         'printed_at',

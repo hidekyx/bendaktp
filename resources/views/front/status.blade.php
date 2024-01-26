@@ -1,16 +1,27 @@
 <section id="contact" class="contact">
     <div class="container" data-aos="fade-up">
 
-    <div class="section-header">
+    <div class="section-header p-0">
         <h2>Cek Status Pengaduan Layanan</h2>
     </div>
 
     <div class="row gy-4">
-
+        <div class="col-lg-12">
+            @if (Session::has('success'))
+                <div class="alert alert-success alert-dismissible text-dark" role="alert">
+                    {{ Session::get('success') }}
+                    <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
         <div class="col-lg-4">
         <form role="form" class="php-email-forms">
             <div class="row">
                 <div class="col-md-12 form-group">
+                    <h4><i class="bi bi-filter">Tracking Pengaduan</i></h4>
+                    <hr>
                     <select class="form-select p-2 form-control-line">
                         <option disabled>Cari Berdasarkan kode:</option>
                         <option selected value="Kode Pengaduan">Kode Pengaduan</option>
@@ -43,10 +54,10 @@
             <div class="text-center mt-3"><button type="submit">Cari</button></div>
         </form>
         </div><!-- End Contact Form -->
-
-        @if($pengaduan)
+        
         <div class="col-lg-8">
-            <div class="card">
+            <div class="card bg-white" style="box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1); border-color: white;">
+            @if($pengaduan)
             <div class="card-body">
                     <h4>Status Pengaduan Layanan</h4>
                     <div class="table-responsive">
@@ -63,7 +74,7 @@
                                 <td>Status</td>
                                 <td>
                                     @if($pengaduan->status == "Menunggu Konfirmasi")
-                                    <span class="badge bg-primary">{{ $pengaduan->status }}</span>
+                                    <span class="badge bg-danger">{{ $pengaduan->status }}</span>
                                     @elseif($pengaduan->status == "Sedang Diproses")
                                     <span class="badge bg-warning">{{ $pengaduan->status }}</span>
                                     @elseif($pengaduan->status == "Pengaduan Selesai")
@@ -136,8 +147,13 @@
                 </div>
                 @endif
             </div>
+            @else
+            <div class="card-body text-center">
+                <h4>Mau Cari Apa ?</h4>
+                <img src="assets/img/question.svg" class="img-fluid">
+            </div>
+            @endif
         </div>
-        @endif
 
     </div>
 

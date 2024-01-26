@@ -12,7 +12,7 @@ class InfografisController extends Controller
     public function infografis() {
         if (Auth::check()) {
             $logged_user = Auth::user();
-            if(Auth::user()->role->nama == "Admin") {
+            if(Auth::user()->role->nama == "Admin" || Auth::user()->role->nama == "Camat") {
                 $infografis = Infografis::simplePaginate(10);
                 return view("dashboard.main", [
                     'page' => "Infografis",

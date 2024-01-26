@@ -10,7 +10,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard.beranda') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('dashboard.pengaduan') }}">Layanan Pengaduan</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('dashboard.pengaduan') }}">Layanan Pengaduan E-KTP</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Detail Pengaduan</li>
                         </ol>
                     </nav>
@@ -84,7 +84,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Bukti Penyelesaian (Foto)</label>
                                 <div class="col-md-12">
-                                    <input type="file" name="bukti" accept="image/png, image/gif, image/jpeg" onchange="loadFile(event)" class="form-control ps-0 form-control-line" required>
+                                    <input type="file" name="bukti" accept="image/png, image/gif, image/jpeg" onchange="loadFile(event)" class="form-control ps-0 form-control-line">
                                 </div>
                                 <img id="output" class="w-100" />
                                 <script>

@@ -71,4 +71,10 @@ class FrontpageController extends Controller
             'pengaduan' => $pengaduan
         ]);
     }
+
+    public function pengajuan() {
+        return view("front.main", [
+            'page' => "Pengajuan",
+        ]);
+    }
 }

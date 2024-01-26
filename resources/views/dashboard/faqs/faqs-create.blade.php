@@ -39,7 +39,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Judul</label>
                                 <div class="col-md-12">
-                                    <input type="text" name="judul" placeholder="Judul pertanyaan dari FAQs yang akan ditampilkan" class="form-control ps-0 form-control-line" required>
+                                    <input type="text" name="judul" placeholder="Judul pertanyaan dari FAQs yang akan ditampilkan" class="form-control ps-0 form-control-line" maxlength="50" required>
                                 </div>
                             </div>
                             <div class="form-group">

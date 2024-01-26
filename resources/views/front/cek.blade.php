@@ -1,7 +1,7 @@
 <section id="contact" class="contact">
     <div class="container" data-aos="fade-up">
 
-    <div class="section-header">
+    <div class="section-header p-0">
         <h2>Cek Status Pengajuan E-KTP</h2>
     </div>
 
@@ -10,6 +10,10 @@
         <div class="col-lg-4">
         <form role="form" class="php-email-forms">
             <div class="row">
+                <!-- update title -->
+                <h4><i class="bi bi-filter">Tracking KTP</i></h4>
+                <hr>
+                <!-- END update title -->
                 <div class="col-md-12 form-group">
                     <select class="form-select p-2 form-control-line" name="tipe">
                         <option disabled>Cari Berdasarkan:</option>
@@ -44,10 +48,10 @@
             <div class="text-center mt-3"><button type="submit">Cari</button></div>
         </form>
         </div><!-- End Contact Form -->
-
-        @if($ektp)
+        
         <div class="col-lg-8">
-            <div class="card">
+            <div class="card bg-white" style="box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1); border-color: white;">
+            @if($ektp)
             <div class="card-body">
                     <h4>Status Pengajuan E-KTP</h4>
                     <div class="table-responsive">
@@ -56,15 +60,19 @@
                                 <td>Status</td>
                                 <td>
                                     @if($ektp->status == "Sedang Dikonfirmasi")
-                                    <span class="badge bg-primary">{{ $ektp->status }}</span>
+                                    <span class="badge bg-danger">{{ $ektp->status }}</span>
                                     @elseif($ektp->status == "Sedang Proses")
                                     <span class="badge bg-warning">{{ $ektp->status }}</span>
                                     @elseif($ektp->status == "Selesai Dicetak")
-                                    <span class="badge bg-info">{{ $ektp->status }}</span>
+                                    <span class="badge bg-success">{{ $ektp->status }}</span>
                                     @elseif($ektp->status == "Telah Diambil")
                                     <span class="badge bg-success">{{ $ektp->status }}</span>
                                     @endif
                                 </td>
+                            </tr>
+                            <tr>
+                                <td>Keterangan</td>
+                                <td>{{ $ektp->keterangan }}</td>
                             </tr>
                             <tr>
                                 <td>Tanggal</td>
@@ -90,9 +98,10 @@
                     <h4>Detail E-KTP</h4>
                     <div class="table-responsive">
                         <table class="table table-bordered user-table">
+                            
                             <tr>
                                 <td>NIK</td>
-                                <td>{{ $ektp->nik ?? '-' }}</td>
+                                <td>{{ substr($ektp->nik, 0, 6) . str_repeat('*', strlen($ektp->nik) - 6) ?? '-' }}</td>
                             </tr>
                             <tr>
                                 <td>Nama</td>
@@ -134,8 +143,14 @@
                     </div>
                 </div>
             </div>
+            @else
+            <div class="card-body text-center">
+                <h4>Mau Cari Apa ?</h4>
+                <img src="assets/img/question.svg" class="img-fluid">
+            </div>
+            @endif
         </div>
-        @endif
+        
 
     </div>
 

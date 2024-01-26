@@ -12,7 +12,7 @@ class FaqsController extends Controller
     public function faqs() {
         if (Auth::check()) {
             $logged_user = Auth::user();
-            if(Auth::user()->role->nama == "Admin") {
+            if(Auth::user()->role->nama == "Admin" || Auth::user()->role->nama == "Camat") {
                 $faqs = Faqs::simplePaginate(10);
                 return view("dashboard.main", [
                     'page' => "Faqs",

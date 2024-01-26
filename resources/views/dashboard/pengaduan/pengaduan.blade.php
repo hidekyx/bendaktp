@@ -10,7 +10,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard.beranda') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Layanan Pengaduan</li>
+                            <li class="breadcrumb-item active" aria-current="page">Layanan Pengaduan E-KTP</li>
                         </ol>
                     </nav>
                 </div>
@@ -43,7 +43,7 @@
                         <h4 class="card-title">Daftar Pengaduan</h4>
                         <h6 class="card-subtitle">Data pengaduan yang terdaftar melalui form pengaduan website Kecamatan Benda</h6>
                         <div class="table-responsive">
-                            <table class="table user-table table-hover">
+                            <table class="table user-table table-hover" id="pengaduan-table">
                                 <thead>
                                     <tr>
                                         <th class="border-top-0">#</th>
@@ -88,7 +88,7 @@
                                             @endif
                                         </td>
                                         <td style="width: 130px">
-
+                                        @if(auth()->user()->id_role == 1)
                                             @if($p->status == "Menunggu Konfirmasi")
                                             <form method="post" action="{{ route('dashboard.pengaduan-process', $p->id_pengaduan) }}">
                                                 @csrf
@@ -102,7 +102,7 @@
                                             -
 
                                             @endif
-
+                                        @endif
                                         </td>
                                     </tr>
                                     @endforeach
@@ -132,3 +132,10 @@
     <!-- ============================================================== -->
     @include('dashboard.footer')
 </div>
+@push('scripts')
+    <script>
+        $(document).ready( function () {
+            $('#pengaduan-table').DataTable();
+        } );
+    </script>
+@endpush
