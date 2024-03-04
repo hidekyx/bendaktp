@@ -14,9 +14,9 @@
         @foreach($infografis as $i)
         <div class="col-xl-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-            <a href="infografis/{{ $i->file }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="storage/infografis/{{ $i->file }}" class="img-fluid" alt=""></a>
+            <a href="storage/infografis/{{ $i->file }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="storage/infografis/{{ $i->file }}" class="img-fluid" alt=""></a>
             <div class="portfolio-info">
-                <h4><a href="portfolio-details.html" title="More Details">{{ $i->judul }}</a></h4>
+                <h4><a href="storage/infografis/{{ $i->file }}" title="More Details">{{ $i->judul }}</a></h4>
             </div>
             </div>
         </div>

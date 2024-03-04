@@ -24,15 +24,23 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-12 mb-2 fw-semibold">Nama Lengkap</label>
-                    <div class="col-md-12">
-                        <input type="text" name="nama" maxlength="40" placeholder="Nama Lengkap" class="form-control p-2 form-control-line" required>
+                    <label class="col-md-12 mb-2 fw-semibold">NIK</label>
+                    <div class="col-md-12 input-group">
+                        <input type="text" id="nik" name="nik" placeholder="NIK" class="form-control ps-2 form-control-line" maxlength="17" oninput="nikInput(this);" required>
+                        <div class="input-group-append">
+                            <button class="btn btn-cari rounded-0" type="button">Cari NIK</button>
+                        </div>
                     </div>
+                    <script type="text/javascript">
+                        function nikInput(element) {
+                            element.value = element.value.replace(/[^0-9]/gi, "");
+                        }
+                    </script>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-12 mb-2 fw-semibold">NIK</label>
+                    <label class="col-md-12 mb-2 fw-semibold">Nama Lengkap</label>
                     <div class="col-md-12">
-                        <input type="number" name="nik" placeholder="NIK" class="form-control p-2 form-control-line" required>
+                        <input type="text" maxlength="40" id="nama_lengkap" placeholder="Nama Lengkap" class="form-control p-2 form-control-line" disabled>
                     </div>
                 </div>
                 <div class="form-group">
@@ -88,3 +96,30 @@
 
     </div>
 </section>
+
+@push('scripts')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".btn-cari").click(function(){
+        var nik = $("#nik").val();
+        $.ajax({
+            url: '{{ route("dashboard.pengaduan-cek-nik", ["nik" => "' + nik + '"]) }}',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                nik: nik,
+                _token: "{{ csrf_token() }}",
+            },
+            success: function(response){
+                $("#nama_lengkap").val(response.nama);
+            },
+            error: function(xhr, status, error){
+                alert('NIK tidak ditemukan');
+                $("#nik").val(null);
+            }
+        });
+    });
+});
+</script>
+@endpush

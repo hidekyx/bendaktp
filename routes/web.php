@@ -47,6 +47,7 @@ Route::get('/dashboard/ektp/detail/{id_ektp}', [EktpController::class, 'ektp_det
 Route::post('/dashboard/ektp/export', [EktpController::class, 'ektp_export'])->name("dashboard.ektp-export");
 
 Route::get('/dashboard/pengaduan', [PengaduanController::class, 'pengaduan'])->name("dashboard.pengaduan");
+Route::post('/dashboard/pengaduan/cek_nik/{nik}', [PengaduanController::class, 'pengaduan_cek_nik'])->name("dashboard.pengaduan-cek-nik");
 Route::post('/dashboard/pengaduan/submit', [PengaduanController::class, 'pengaduan_submit'])->name("dashboard.pengaduan-submit");
 Route::post('/dashboard/pengaduan/process/{id_pengaduan}', [PengaduanController::class, 'pengaduan_process'])->name("dashboard.pengaduan-process");
 Route::get('/dashboard/pengaduan/report_view/{id_pengaduan}', [PengaduanController::class, 'pengaduan_report_view'])->name("dashboard.pengaduan-report-view");

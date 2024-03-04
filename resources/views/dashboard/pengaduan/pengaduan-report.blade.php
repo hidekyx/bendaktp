@@ -78,7 +78,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Hasil Peninjauan</label>
                                 <div class="col-md-12">
-                                    <textarea rows="5" name="peninjauan" placeholder="Tuliskan hasil peninjauan" class="form-control p-3 form-control-line" required></textarea>
+                                    <textarea rows="5" maxlength="250" name="peninjauan" placeholder="Tuliskan hasil peninjauan" class="form-control p-3 form-control-line" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">

@@ -57,7 +57,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">NIK</label>
                                 <div class="col-md-12">
-                                    <input type="text" name="nik" value="{{ $ektp->nik }}" placeholder="NIK" class="form-control ps-0 form-control-line" maxlength="20" oninput="nikInput(this);" required>
+                                    <input type="text" name="nik" value="{{ $ektp->nik }}" placeholder="NIK" class="form-control ps-0 form-control-line" maxlength="17" oninput="nikInput(this);" required>
                                 </div>
                                 <script type="text/javascript">
                                     function nikInput(element) {
@@ -68,7 +68,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Tempat Lahir</label>
                                 <div class="col-md-12">
-                                    <input type="text" name="tempat_lahir" value="{{ $ektp->tempat_lahir }}" placeholder="Tempat Lahir" class="form-control ps-0 form-control-line" maxlength="40" required>
+                                    <input type="text" name="tempat_lahir" value="{{ $ektp->tempat_lahir }}" placeholder="Tempat Lahir" class="form-control ps-0 form-control-line" maxlength="50" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -82,8 +82,8 @@
                                 <div class="col-sm-12 border-bottom">
                                     <select class="form-select shadow-none ps-0 border-0 form-control-line" name="jenis_kelamin">
                                         <option hidden selected value="{{ $ektp->jenis_kelamin }}">{{ $ektp->jenis_kelamin }}</option>
-                                        <option value="Laki-Laki">Laki-Laki</option>
-                                        <option value="Perempuan">Perempuan</option>
+                                        <option value="LAKI-LAKI">LAKI-LAKI</option>
+                                        <option value="PEREMPUAN">PEREMPUAN</option>
                                     </select>
                                 </div>
                             </div>
@@ -103,23 +103,20 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Alamat</label>
                                 <div class="col-md-12">
-                                    <textarea rows="5" name="alamat" placeholder="Alamat Lengkap" class="form-control ps-0 form-control-line" required>{{ $ektp->alamat }}</textarea>
+                                    <textarea rows="5" maxlength="225" name="alamat" placeholder="Alamat Lengkap" class="form-control ps-0 form-control-line" required>{{ $ektp->alamat }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Agama</label>
-                                <!-- <div class="col-md-12">
-                                    <input type="text" name="agama" value="{{ $ektp->agama }}" placeholder="Agama" class="form-control ps-0 form-control-line" required>
-                                </div> -->
                                 <div class="col-sm-12 border-bottom">
                                     <select class="form-select shadow-none ps-0 border-0 form-control-line" name="status_perkawinan">
                                     <option hidden selected value="{{ $ektp->agama }}">{{ $ektp->agama }}</option>
-                                        <option value="Islam">Islam</option>
-                                        <option value="Kristen">Kristen</option>
-                                        <option value="Katolik">Katolik</option>
-                                        <option value="Hindu">Hindu</option>
-                                        <option value="Budha">Budha</option>
-                                        <option value="Khonghucu">Khonghucu</option>
+                                        <option value="ISLAM">ISLAM</option>
+                                        <option value="KRISTEN">KRISTEN</option>
+                                        <option value="KATOLIK">KATOLIK</option>
+                                        <option value="HINDU">HINDU</option>
+                                        <option value="BUDHA">BUDHA</option>
+                                        <option value="KHONGHUCU">KHONGHUCU</option>
                                         <option value="-">-</option>
                                     </select>
                             </div>
@@ -139,7 +136,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Pekerjaan</label>
                                 <div class="col-md-12">
-                                    <input type="text" name="pekerjaan" value="{{ $ektp->pekerjaan }}" placeholder="Pekerjaan" class="form-control ps-0 form-control-line" maxlength="40" required>
+                                    <input type="text" name="pekerjaan" value="{{ $ektp->pekerjaan }}" placeholder="Pekerjaan" class="form-control ps-0 form-control-line" maxlength="50" required>
                                 </div>
                             </div>
                             <div class="form-group">

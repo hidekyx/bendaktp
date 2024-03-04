@@ -24,6 +24,7 @@
                 <div class="col-md-12 form-group mt-2 mb-2">
                     <input type="text" name="value" class="form-control" placeholder="Cari berdasarkan kolom yang dipilih" required>
                 </div>
+                
                 <div class="col-md-12">
                     @if(session('errors'))
                         <div class="alert alert-danger alert-dismissible text-dark" role="alert">

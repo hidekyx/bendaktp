@@ -33,6 +33,16 @@ class PengaduanController extends Controller
         }
     }
 
+    public function pengaduan_cek_nik(Request $request) {
+        $ektp = Ektp::where('nik', $request->get('nik'))->first();
+        if($ektp) {
+            return response()->json($ektp);
+        }
+        else {
+            return response()->json(['error' => 'Not found'], 404);
+        }
+    }
+
     public function pengaduan_submit(Request $request) {
         $ektp = Ektp::where('nik', $request->get('nik'))->first();
         if($ektp) {

@@ -39,7 +39,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Judul</label>
                                 <div class="col-md-12">
-                                    <input type="text" name="judul" value="{{ $infografis->judul }}" placeholder="Judul dari ilustrasi infografis" class="form-control ps-0 form-control-line" maxlength="80" required>
+                                    <input type="text" name="judul" value="{{ $infografis->judul }}" placeholder="Judul dari ilustrasi infografis" class="form-control ps-0 form-control-line" maxlength="100" required>
                                 </div>
                             </div>
                             <div class="form-group">

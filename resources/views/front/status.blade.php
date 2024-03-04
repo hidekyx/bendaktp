@@ -28,7 +28,7 @@
                     </select>
                 </div>
                 <div class="col-md-12 form-group mt-2 mb-2">
-                    <input type="text" name="kode" class="form-control" placeholder="Cari berdasarkan kode pengaduan" required>
+                    <input type="text" maxlength="" name="kode" class="form-control" placeholder="Cari berdasarkan kode pengaduan" required>
                 </div>
                 <div class="col-md-12">
                     @if(session('errors'))

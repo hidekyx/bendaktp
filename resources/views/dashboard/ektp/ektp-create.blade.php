@@ -40,10 +40,10 @@
                                 <label class="col-sm-12">Keterangan</label>
                                 <div class="col-sm-12 border-bottom">
                                     <select class="form-select shadow-none ps-0 border-0 form-control-line" name="keterangan">
-                                        <option value="Perekaman Baru">Perekaman Baru</option>
-                                        <option value="E-KTP Rusak">E-KTP Rusak</option>
-                                        <option value="E-KTP Hilang">E-KTP Hilang</option>
-                                        <option value="E-KTP Perubahan Status">E-KTP Perubahan Status</option>
+                                        <option value="PEREKAMAN BARU">PEREKAMAN BARU</option>
+                                        <option value="E-KTP RUSAK">E-KTP RUSAK</option>
+                                        <option value="E-KTP HILANG">E-KTP HILANG</option>
+                                        <option value="E-KTP PERUBAHAN STATUS">E-KTP PERUBAHAN STATUS</option>
                                     </select>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">NIK</label>
                                 <div class="col-md-12">
-                                    <input type="text" id="nik" name="nik" placeholder="NIK" class="form-control ps-0 form-control-line" maxlength="20" oninput="nikInput(this);" required>
+                                    <input type="text" id="nik" name="nik" placeholder="NIK" class="form-control ps-0 form-control-line" maxlength="17" oninput="nikInput(this);" required>
                                 </div>
                                 <script type="text/javascript">
                                     function nikInput(element) {
@@ -67,7 +67,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Tempat Lahir</label>
                                 <div class="col-md-12">
-                                    <input type="text" name="tempat_lahir" placeholder="Tempat Lahir" class="form-control ps-0 form-control-line" maxlength="40" required>
+                                    <input type="text" name="tempat_lahir" placeholder="Tempat Lahir" class="form-control ps-0 form-control-line" maxlength="50" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -80,8 +80,8 @@
                                 <label class="col-sm-12">Jenis Kelamin</label>
                                 <div class="col-sm-12 border-bottom">
                                     <select class="form-select shadow-none ps-0 border-0 form-control-line" name="jenis_kelamin">
-                                        <option value="Laki-Laki">Laki-Laki</option>
-                                        <option value="Perempuan">Perempuan</option>
+                                        <option value="LAKI-LAKI">LAKI-LAKI</option>
+                                        <option value="PEREMPUAN">PEREMPUAN</option>
                                     </select>
                                 </div>
                             </div>
@@ -100,22 +100,19 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Alamat</label>
                                 <div class="col-md-12">
-                                    <textarea rows="5" name="alamat" placeholder="Alamat Lengkap" class="form-control ps-0 form-control-line" required></textarea>
+                                    <textarea rows="5" maxlength="225" name="alamat" placeholder="Alamat Lengkap" class="form-control ps-0 form-control-line" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Agama</label>
-                                <!-- <div class="col-md-12">
-                                    <input type="text" name="agama" placeholder="Agama" class="form-control ps-0 form-control-line" required>
-                                </div> -->
                                 <div class="col-sm-12 border-bottom">
                                     <select class="form-select shadow-none ps-0 border-0 form-control-line" name="agama">
-                                        <option value="Islam">Islam</option>
-                                        <option value="Kristen">Kristen</option>
-                                        <option value="Katolik">Katolik</option>
-                                        <option value="Hindu">Hindu</option>
-                                        <option value="Budha">Budha</option>
-                                        <option value="Khonghucu">Khonghucu</option>
+                                        <option value="ISLAM">ISLAM</option>
+                                        <option value="KRISTEN">KRISTEN</option>
+                                        <option value="KATOLIK">KATOLIK</option>
+                                        <option value="HINDU">HINDU</option>
+                                        <option value="BUDHA">BUDHA</option>
+                                        <option value="KHONGHUCU">KHONGHUCU</option>
                                         <option value="-">-</option>
                                     </select>
                                 </div>
@@ -124,10 +121,10 @@
                                 <label class="col-sm-12">Status Perkawinan</label>
                                 <div class="col-sm-12 border-bottom">
                                     <select class="form-select shadow-none ps-0 border-0 form-control-line" name="status_perkawinan">
-                                        <option value="Belum Kawin">Belum Kawin</option>
-                                        <option value="Kawin">Kawin</option>
-                                        <option value="Cerai Hidup">Cerai Hidup</option>
-                                        <option value="Cerai Mati">Cerai Mati</option>
+                                        <option value="BELUM KAWIN">BELUM KAWIN</option>
+                                        <option value="KAWIN">KAWIN</option>
+                                        <option value="CERAI HIDUP">CERAI HIDUP</option>
+                                        <option value="CERAI MATI">CERAI MATI</option>
                                         <option value="-">-</option>
                                     </select>
                                 </div>
@@ -135,7 +132,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Pekerjaan</label>
                                 <div class="col-md-12">
-                                    <input type="text" name="pekerjaan" placeholder="Pekerjaan" class="form-control ps-0 form-control-line" maxlength="40" required>
+                                    <input type="text" name="pekerjaan" placeholder="Pekerjaan" class="form-control ps-0 form-control-line" maxlength="50" required>
                                 </div>
                             </div>
                             <div class="form-group">
